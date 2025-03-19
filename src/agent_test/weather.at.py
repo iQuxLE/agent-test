@@ -33,7 +33,7 @@ geo_agent = Agent(
 
 # Register a tool to get elevation for given latitude and longitude
 @geo_agent.tool_plain
-def get_loc(location_string) -> (float, float, float):
+def get_loc(location_string) -> (float, float):
     """
     Get the lat / long for a place gien an address string or other location
     string.
