@@ -45,7 +45,7 @@ def get_soil_ph_image(
     :param south: Southern boundary
     :param east: Eastern boundary
     :param north: Northern boundary
-    :return: Metadata summary of soil pH and image file path
+    :return: Metadata summary of soil pH
     """
     try:
         # Fetch pH data as GeoTIFF
