@@ -51,9 +51,8 @@ def get_weather(location_string: str, start_date: str, end_date: str) -> dict[st
     """
     Get information about the weather at a particular location over a particular time period.
     location_string - the location to query like an address a city / state / country etc.
-    start_date - the start of the period of inteest as a string.
-    end_date - the end of the period of inteest as a string.
-
+    start_date - the start of the period of interest as a string.
+    end_date - the end of the period of interest as a string.
     Returns a dictionary of weather information for the location.
     """
     pt = Point(*get_loc(location_string))
