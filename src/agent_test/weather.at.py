@@ -35,7 +35,7 @@ geo_agent = Agent(
 @geo_agent.tool_plain
 def get_loc(location_string) -> (float, float):
     """
-    Get the lat / long for a place gien an address string or other location
+    Get the lat / long for a place given an address string or other location
     string.
     location_string - the location to query like an address a city / state / country etc.
 
