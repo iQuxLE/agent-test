@@ -70,7 +70,7 @@ def get_weather(location_string: str, start_date: str, end_date: str) -> dict[st
 # Use the agent to query elevation
 result = geo_agent.run_sync(
     """
-    Tell me about the weather in the city of kalamazoo? over 7 days from Feburary 14 ,2024.
+    Tell me about the weather in the city of kalamazoo? over 7 days from February 14 ,2024.
     Summarize the general trends and how happy you think people would be about the weather.
     """
 )
