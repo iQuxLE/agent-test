@@ -49,8 +49,7 @@ def get_loc(location_string) -> (float, float):
 @geo_agent.tool_plain
 def get_weather(location_string: str, start_date: str, end_date: str) -> dict[str, Any]:
     """
-    Get information about the weather at a particular location over a particlar time period.
-
+    Get information about the weather at a particular location over a particular time period.
     location_string - the location to query like an address a city / state / country etc.
     start_date - the start of the period of inteest as a string.
     end_date - the end of the period of inteest as a string.
