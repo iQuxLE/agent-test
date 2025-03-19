@@ -1,4 +1,5 @@
 import os
+from datetime import datetime
 from typing import List
 
 from nmdc_geoloc_tools import elevation
@@ -29,6 +30,32 @@ geo_agent = Agent(
     and switching between roadmap and satellite to get an overall sense of what is there.
     """
 )
+
+from meteostat import Point, Hourly
+
+@geo_agent.tool_plain
+def get_current_temperature(
+    lat: float, lon: float,
+) -> float:
+    """
+    Get the current temperature at a location.
+
+    :param lat:
+    :param lon:
+    :return: temperature in C
+    """
+    print(f"Looking up temperature for lat={lat}, lon={lon}")
+    loc = Point(lat, lon)
+    today = datetime.today()
+    start = datetime(today.year, today.month, today.day)
+    end = datetime(today.year, today.month, today.day, 23, 59)
+    data = Hourly(loc, start, end).fetch()
+    temp_col = 'temp'
+    temp_vals = data[temp_col]
+    t = temp_vals[temp_vals.last_valid_index()]
+    #print(f"Temperature data: {temp_vals} // {temp_vals.last_valid_index()}")
+    print(f"Temperature: {t}")
+    return t
 
 @geo_agent.tool_plain
 def get_elev(
@@ -82,6 +109,7 @@ async def fetch_map_image_and_interpret(lat: float, lon: float, zoom=18, maptype
     print("INTERPRETATION", r.data)
     return r.data
 
-result = geo_agent.run_sync('What features do you see at 35.97583846 and long=-84.2743123')
+result = geo_agent.run_sync('What is the temperature at 35.97583846 and long=-84.2743123')
+#result = geo_agent.run_sync('What features do you see at 35.97583846 and long=-84.2743123')
 #result = geo_agent.run_sync('How high is the location on earth with lat=35.97583846 and long=-84.2743123')
 #print(result.all_messages_json())  # type: ignore

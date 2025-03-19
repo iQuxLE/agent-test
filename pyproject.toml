@@ -8,8 +8,10 @@ authors = [
 ]
 requires-python = ">=3.9"
 dependencies = [
+    "meteostat>=1.6.8",
     "nmdc-geoloc-tools",
     "pydantic-ai>=0.0.42",
+    "pytest>=8.3.5",
 ]
 
 [project.scripts]
