@@ -2,7 +2,6 @@ from pydantic_ai import Agent
 from pydantic_ai.models.openai import OpenAIModel
 from pydantic_ai.providers.openai import OpenAIProvider
 
-api_key = "sk-98wJqm4P73EsytpCdL0M8g"
 ai_model = OpenAIModel(
     "openai/gpt-4o",
     provider=OpenAIProvider(
