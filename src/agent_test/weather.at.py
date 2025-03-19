@@ -39,7 +39,7 @@ def get_loc(location_string) -> (float, float):
     string.
     location_string - the location to query like an address a city / state / country etc.
 
-    Returns a tuple of the latitude abd,longitude of the location.
+    Returns a tuple of the latitude and longitude of the location.
     """
     loc = geo.geocode(location_string)
     print(loc)
